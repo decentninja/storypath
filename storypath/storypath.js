@@ -12,14 +12,33 @@ if (Meteor.isClient) {
             storyid = "0"
         }
         var story = stories.findOne({_id: storyid})
+	if(!story) return []
         var complete = [story]
         while(story && story.parent) {
+	    var last = story._id
             story = stories.findOne({_id: story.parent})
+	    story.paths.forEach(function(s) {
+		s.followed = s._story == last
+	    })
             complete.push(story)
         }
         complete.reverse()
         return complete
     }
+    Template.path.events({
+	"submit .create": function(e, t) {
+	    e.preventDefault()
+	    var id = stories.insert({
+		body: t.find("#body").value,
+		parent: this._id
+	    })
+	    stories.update(this._id, {$push: {paths: {_story: id, path: t.find("#choice").value}}})
+	    Meteor.Router.to("/" + id)
+	},
+	"click .showcreate": function(e, t) {
+	    console.log(t.find(".create"))
+	}
+    })
 }
 
 if (Meteor.isServer) {
@@ -33,8 +52,12 @@ if (Meteor.isServer) {
                     {
                         "path": "Lorem ipsum",
                         "_story": 1
+                    },
+		    {
+			"path": "Mega test",
+			"_story": 5
                     }
-                    ]
+		    ]
                 },
                 {
                     "_id": "1",
@@ -73,7 +96,51 @@ if (Meteor.isServer) {
                     "parent": "3",
                     "body": "Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.",
                     "paths": []
-                }
+                },
+		{
+		    "_id": "5",
+		    "parent": "0",
+		    "body": "blub",
+		    "paths": [
+			{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			},{
+				"path": "test",
+				"_story": "-1"
+			}
+		    ]
+		}
             ]
             sampledata.forEach(function(o) {
                 stories.insert(o)

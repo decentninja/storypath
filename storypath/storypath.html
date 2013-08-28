@@ -31,11 +31,22 @@
 	{{#each story}}
 		<article>
 			<p>{{body}}</p>
-			<ul>
-				{{#each paths}}
-					<li><a href="{{_story}}">{{path}}</a></li>
-				{{/each}}
-			</ul>
+			{{#each paths}}
+				<a class="followed-{{followed}} path" href="{{_story}}">{{path}}</a>
+			{{else}}
+				This story does not need to end, {{#unless currentUser}}login and{{/unless}} press the + button.
+			{{/each}}
+			{{#if currentUser}}
+				<a class="showcreate" title="Create your own">+</a>
+				<form class="create well">
+					<div class="form-group"><input type="text" class="form-control" id="choice" placeholder="Choice"></div>
+					<div class="form-group"><textarea id="body" class="form-control" placeholder="Body"></textarea></div>
+					<input type="hidden" id="parent" value="{{_id}}">
+					<input type="submit" class="btn btn-default">
+				</form>
+			{{/if}}
 		</article>
+	{{else}}
+		404 No such story!
 	{{/each}}
 </template>
