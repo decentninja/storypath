@@ -1,6 +1,9 @@
 {
   "packages": {
     "normalize.css": {},
-    "router": {}
+    "router": {},
+    "accounts-persona": {},
+    "bootstrap-3": {},
+    "accounts-ui-bootstrap-3": {}
   }
 }

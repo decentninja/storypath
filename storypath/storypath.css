@@ -1,3 +1,21 @@
 .container {
-	max-width: 680px;
+	max-width: 480px;
+}
+
+article {
+	text-align: justify;
+}
+
+body {
+	font-family: Palatino, serif;
+	font-size: 15px;
+}
+
+h1 {
+	font-family: Palatino, serif;
+	font-weight: bold;
+}
+
+.login {
+	float: right;
 }

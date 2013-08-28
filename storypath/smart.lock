@@ -3,7 +3,10 @@
   "dependencies": {
     "basePackages": {
       "normalize.css": {},
-      "router": {}
+      "router": {},
+      "accounts-persona": {},
+      "bootstrap-3": {},
+      "accounts-ui-bootstrap-3": {}
     },
     "packages": {
       "normalize.css": {
@@ -15,6 +18,21 @@
         "git": "https://github.com/tmeasday/meteor-router.git",
         "tag": "v0.5.4",
         "commit": "e40ee450a756b54a32ed67be4595772403256fb5"
+      },
+      "accounts-persona": {
+        "git": "https://github.com/vladikoff/meteor-accounts-persona.git",
+        "tag": "v0.1.6",
+        "commit": "5b8110dad901a69f674e6a0381e074567fe1b4d9"
+      },
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v0.3.3",
+        "commit": "bbb5b5eb3e36aff6a740889a965c8bdb8586ef14"
+      },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.2.1",
+        "commit": "123a193f7a20dbf4587dda3f4109035c54581f11"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
