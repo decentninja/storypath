@@ -8,5 +8,6 @@ autopublish
 insecure
 preserve-inputs
 router
-accounts-persona
+accounts-password
 accounts-ui-unstyled
+accounts-persona

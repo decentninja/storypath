@@ -19,3 +19,21 @@ h1 {
 .login {
 	float: right;
 }
+
+.followed-true {
+	text-decoration: underline;
+}
+
+.path {
+	margin: 0 10px 0 10px;
+}
+
+article {
+	margin-top: 8px;
+}
+
+.create {
+	display: none;
+}
+
+
