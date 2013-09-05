@@ -25,9 +25,10 @@ if (Meteor.isClient) {
         complete.reverse()
         return complete
     }
-    Template.path.events({
+    Template.story.events({
 	"submit .create": function(e, t) {
 	    e.preventDefault()
+	    console.log(t)
 	    var id = stories.insert({
 		body: t.find("#body").value,
 		parent: this._id
@@ -36,7 +37,7 @@ if (Meteor.isClient) {
 	    Meteor.Router.to("/" + id)
 	},
 	"click .showcreate": function(e, t) {
-	    console.log(t.find(".create"))
+	    $(t.find(".create")).toggle()
 	}
     })
 }
