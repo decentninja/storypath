@@ -2,17 +2,17 @@
 	<title>Storypath</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	   <script>
-        (function() {
-            var t   = document.createElement('script');
-            t.type  = 'text/javascript';
-            t.async = true;
-            t.id    = 'persona-lib';
-            t.src = '//login.persona.org/include.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(t, s);
-        })();
-    </script>
+	<script>
+	(function() {
+		var t   = document.createElement('script');
+		t.type  = 'text/javascript';
+		t.async = true;
+		t.id    = 'persona-lib';
+		t.src = '//login.persona.org/include.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(t, s);
+	})();
+	</script>
 </head>
 
 <body>
@@ -46,8 +46,8 @@
 		{{#if currentUser}}
 			<a class="showcreate" href="#" title="Create your own">+</a>
 			<form class="create well">
-				<div class="form-group"><input type="text" class="form-control" id="choice" placeholder="Choice"></div>
-				<div class="form-group"><textarea id="body" class="form-control" placeholder="Body"></textarea></div>
+				<div class="form-group"><input type="text" class=" choice form-control" placeholder="Choice"></div>
+				<div class="form-group"><textarea class="body form-control" placeholder="Body"></textarea></div>
 				<input type="hidden" id="parent" value="{{_id}}">
 				<input type="submit" value="Create" class="btn btn-default">
 			</form>
