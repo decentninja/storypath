@@ -1,3 +1,20 @@
+stories = new Meteor.Collection("stories")
+
+Meteor.publish("stories", function() {
+	return stories.find()
+})
+
+// Needs more rules
+stories.allow({
+	insert: function(userId, doc) {
+		return doc.body && doc.parent
+	},
+	update: function(userId, doc, fieldNames, modifiers) {
+		console.log(userId, fieldNames, modifiers)
+		return fieldNames[0] == "paths" && modifiers["$push"]
+	}
+})
+
 Meteor.startup(function () {
 	if (stories.find().count() === 0) {
 		var sampledata = [
